@@ -1,4 +1,4 @@
-# Masterpiece-art-gallery-app
+# art-gallery-app
 Simplon school project
 
 # Title
