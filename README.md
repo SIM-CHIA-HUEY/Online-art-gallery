@@ -1,11 +1,11 @@
-# art-gallery-app
-Simplon school project
+# ONLINE ART GALLERY
 
-# Title
-## Subtitle
+Side project + _Simplon school project_
+
+## Project description
 ###### small title
 
-_This will also be italic_
+
 
 __This will also be bold__
   
