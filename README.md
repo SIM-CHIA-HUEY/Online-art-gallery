@@ -1,6 +1,11 @@
 # ONLINE ART GALLERY
 Side project + _Simplon school project_
 
+Une galerie d’arts virtuelle qui permet aux artistes d’exposer et de vendre leur oeuvres d’art, aux visiteurs de les contempler et acheter, et aux 2 d’échanger en direct. 
+
+A virtual art gallery that allows artists to exhibit and sell their artwork, and visitors to contemplate and buy them, and both to directly message each other.  
+
+
 
 
 ## Project description
