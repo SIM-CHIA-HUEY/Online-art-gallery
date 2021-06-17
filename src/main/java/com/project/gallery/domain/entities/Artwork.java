@@ -25,6 +25,7 @@ public class Artwork {
     @Column(name = "QUANTITY", nullable = false)
     private int productionQuantity ;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ONE")
     private Categories categoryOne;
@@ -40,6 +41,8 @@ public class Artwork {
     @ManyToOne
     @JoinColumn(name = "AVAILABILITIES")
     private Availabilities availabilities ;
+
+     */
 
     public Artwork(){
         //
@@ -86,6 +89,7 @@ public class Artwork {
         this.productionQuantity = productionQuantity;
     }
 
+    /*
     public Categories getCategoryOne() {
         return categoryOne;
     }
@@ -114,4 +118,6 @@ public class Artwork {
     public void setAvailabilities(Availabilities availabilities) {
         this.availabilities = availabilities;
     }
+
+     */
 }

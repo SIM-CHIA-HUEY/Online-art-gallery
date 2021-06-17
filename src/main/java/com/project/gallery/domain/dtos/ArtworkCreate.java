@@ -1,18 +1,19 @@
 package com.project.gallery.domain.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ArtworkCreate {
     // + upload images and videos !
     @NotBlank private String title ;
     @NotBlank private String description ;
-    @NotBlank private Long categoryCodeOne ;
-    @NotBlank private Long categoryCodeTwo ;
-    @NotBlank private Long categoryCodeThree ;
-    @NotBlank private int price ;
-    @NotBlank private boolean isPublic ;
-    @NotBlank private int productionQuantity ;
-    @NotBlank private Long availabilitiesCode ;
+    //@NotBlank private Long categoryCodeOne ;
+    //@NotBlank private Long categoryCodeTwo ;
+    //@NotBlank private Long categoryCodeThree ;
+    @NotNull private int price ;
+    @NotNull private boolean isPublic ;
+    @NotNull private int productionQuantity ;
+    //@NotBlank private Long availabilitiesCode ;
 
     public ArtworkCreate(){
         //
@@ -32,6 +33,7 @@ public class ArtworkCreate {
         this.description = description;
     }
 
+    /*
     public Long getCategoryCodeOne() {
         return categoryCodeOne;
     }
@@ -53,6 +55,8 @@ public class ArtworkCreate {
         this.categoryCodeThree = categoryCodeThree;
     }
 
+     */
+
     public int getPrice() {
         return price;
     }
@@ -73,7 +77,7 @@ public class ArtworkCreate {
     public void setProductionQuantity(int productionQuantity) {
         this.productionQuantity = productionQuantity;
     }
-
+/*
     public Long getAvailabilitiesCode() {
         return availabilitiesCode;
     }
@@ -81,11 +85,17 @@ public class ArtworkCreate {
         this.availabilitiesCode = availabilitiesCode;
     }
 
+ */
+
     @Override
     public String toString(){
-        return "Artwork : [ Title : " + title + ", Description : " + description + ", Categories : " + categoryCodeOne +
-                ", " + categoryCodeTwo + ", " + categoryCodeThree +
-                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + productionQuantity +
-                ", Availabilities : " + availabilitiesCode;
+        return "Artwork : [ Title : " + title + ", Description : " + description +
+                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + productionQuantity;
     }
+    /*
+    ", Categories : " + categoryCodeOne +
+                ", " + categoryCodeTwo + ", " + categoryCodeThree +
+
+      + ", Availabilities : " + availabilitiesCode
+     */
 }
