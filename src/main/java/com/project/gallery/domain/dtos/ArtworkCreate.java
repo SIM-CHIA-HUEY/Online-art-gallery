@@ -1,5 +1,7 @@
 package com.project.gallery.domain.dtos;
 
+import com.project.gallery.domain.entities.Availabilities;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -13,7 +15,7 @@ public class ArtworkCreate {
     @NotNull private int price ;
     @NotNull private boolean isPublic ;
     @NotNull private int productionQuantity ;
-    //@NotBlank private Long availabilitiesCode ;
+    @NotNull private Long availabilitiesId;
 
     public ArtworkCreate(){
         //
@@ -77,25 +79,22 @@ public class ArtworkCreate {
     public void setProductionQuantity(int productionQuantity) {
         this.productionQuantity = productionQuantity;
     }
-/*
-    public Long getAvailabilitiesCode() {
-        return availabilitiesCode;
-    }
-    public void setAvailabilitiesCode(Long availabilitiesCode) {
-        this.availabilitiesCode = availabilitiesCode;
-    }
 
- */
+    public Long getAvailabilitiesId() {
+        return availabilitiesId;
+    }
+    public void setAvailabilitiesId(Long availabilitiesId) {
+        this.availabilitiesId = availabilitiesId;
+    }
 
     @Override
     public String toString(){
         return "Artwork : [ Title : " + title + ", Description : " + description +
-                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + productionQuantity;
+                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + productionQuantity +
+                ", Availabilities : " + availabilitiesId;
     }
     /*
     ", Categories : " + categoryCodeOne +
                 ", " + categoryCodeTwo + ", " + categoryCodeThree +
-
-      + ", Availabilities : " + availabilitiesCode
      */
 }

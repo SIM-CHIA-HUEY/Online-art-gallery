@@ -37,23 +37,26 @@ public class Artwork {
     @ManyToOne
     @JoinColumn(name = "CATEGORY_THREE", nullable = false)
     private Categories categoryThree ;
+    */
 
     @ManyToOne
     @JoinColumn(name = "AVAILABILITIES")
-    private Availabilities availabilities ;
+    private Availabilities availabilitiesId;
 
-     */
 
     public Artwork(){
         //
     }
 
+    /*
     public Long getArtworkId() {
         return artworkId;
     }
     public void setArtworkId(Long artworkId) {
         this.artworkId = artworkId;
     }
+
+     */
 
 
     public String getTitle() {
@@ -110,14 +113,14 @@ public class Artwork {
     public void setCategoryThree(Categories categoryThree) {
         this.categoryThree = categoryThree;
     }
-
-    public Availabilities getAvailabilities() {
-        return availabilities;
+ */
+    public Availabilities getAvailabilitiesId() {
+        return availabilitiesId;
     }
 
-    public void setAvailabilities(Availabilities availabilities) {
-        this.availabilities = availabilities;
+    public void setAvailabilitiesId(Availabilities availabilitiesCode) {
+        this.availabilitiesId = availabilitiesCode;
     }
 
-     */
+
 }

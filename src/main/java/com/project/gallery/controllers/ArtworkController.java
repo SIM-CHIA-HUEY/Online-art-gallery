@@ -2,10 +2,7 @@ package com.project.gallery.controllers;
 
 import com.project.gallery.domain.dtos.ArtworkCreate;
 import com.project.gallery.services.ArtworkService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -23,4 +20,12 @@ public class ArtworkController {
     public void createArtwork (@Valid @RequestBody ArtworkCreate newArtwork){
         artworkService.create(newArtwork);
     }
+
+    /*
+    @GetMapping("all")
+    public List<ArtworkView> getAll(){
+        return artworkService.getAllWork();
+    }
+
+     */
 }
