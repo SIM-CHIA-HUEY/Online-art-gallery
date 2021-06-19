@@ -1,6 +1,7 @@
 package com.project.gallery.domain.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "ARTWORKS")
@@ -25,19 +26,8 @@ public class Artwork {
     @Column(name = "QUANTITY", nullable = false)
     private int productionQuantity ;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ONE")
-    private Categories categoryOne;
-
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_TWO", nullable = false)
-    private Categories categoryTwo ;
-
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_THREE", nullable = false)
-    private Categories categoryThree ;
-    */
+    @OneToMany(mappedBy = "artwork")
+    private Set<ArtworkCategory> artworkCategory;
 
     @ManyToOne
     @JoinColumn(name = "AVAILABILITIES")
@@ -58,6 +48,14 @@ public class Artwork {
 
      */
 
+
+    public Long getArtworkId() {
+        return artworkId;
+    }
+
+    public void setArtworkId(Long artworkId) {
+        this.artworkId = artworkId;
+    }
 
     public String getTitle() {
         return title;
@@ -92,28 +90,6 @@ public class Artwork {
         this.productionQuantity = productionQuantity;
     }
 
-    /*
-    public Categories getCategoryOne() {
-        return categoryOne;
-    }
-    public void setCategoryOne(Categories categoryCodeOne) {
-        this.categoryOne = categoryCodeOne;
-    }
-
-    public Categories getCategoryTwo() {
-        return categoryTwo;
-    }
-    public void setCategoryTwo(Categories categoryTwo) {
-        this.categoryTwo = categoryTwo;
-    }
-
-    public Categories getCategoryThree() {
-        return categoryThree;
-    }
-    public void setCategoryThree(Categories categoryThree) {
-        this.categoryThree = categoryThree;
-    }
- */
     public Availabilities getAvailabilitiesId() {
         return availabilitiesId;
     }
@@ -122,5 +98,25 @@ public class Artwork {
         this.availabilitiesId = availabilitiesCode;
     }
 
+    public Set<ArtworkCategory> getArtworkCategory() {
+        return artworkCategory;
+    }
 
+    public void setArtworkCategory(Set<ArtworkCategory> artworkCategory) {
+        this.artworkCategory = artworkCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Artwork{" +
+                "artworkId=" + artworkId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", isPublic=" + isPublic +
+                ", productionQuantity=" + productionQuantity +
+                ", artworkCategory=" + artworkCategory +
+                ", availabilitiesId=" + availabilitiesId +
+                '}';
+    }
 }

@@ -2,8 +2,10 @@ package com.project.gallery;
 
 import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
+import com.project.gallery.domain.entities.Categories;
 import com.project.gallery.repositories.ArtworkRepository;
 import com.project.gallery.repositories.AvailabilitiesRepository;
+import com.project.gallery.repositories.CategoriesRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -14,31 +16,22 @@ import org.springframework.context.annotation.Bean;
 public class GalleryApplication {
 
     @Autowired
-    //private ArtworkRepository repo;
     private AvailabilitiesRepository repoAvailabilities;
+    private CategoriesRepository repoCategories;
+
+    public GalleryApplication(AvailabilitiesRepository repoAvailabilities, CategoriesRepository repoCategories) {
+        this.repoAvailabilities = repoAvailabilities ;
+        this.repoCategories = repoCategories;
+    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(GalleryApplication.class, args);
     }
 
-    /*
-    @Bean
-    InitializingBean sendDataBase() {
-        return () -> {
-            Artwork art1 = new Artwork();
-            art1.setDescription("MyDescription");
-            art1.setPrice(1000);
-            art1.setTitle("my Art");
-            art1.setPublic(true);
-            art1.setProductionQuantity(10);
-            repo.save(art1);
-        };
-   }
-
-     */
 
    @Bean
-    InitializingBean sendDatabase(){
+    InitializingBean sendDatabaseAvailabilitiesTable(){
         return() -> {
             Availabilities availabilitiesOne = new Availabilities();
             availabilitiesOne.setAvailabilitiesCode(1L);
@@ -50,6 +43,45 @@ public class GalleryApplication {
             repoAvailabilities.save(availabilitiesTwo);
         };
    }
+
+
+   @Bean
+    InitializingBean sendDatabaseCategoriesTable(){
+       return() -> {
+           Categories categoriesStyleOne = new Categories();
+           categoriesStyleOne.setCategoryId(101L);
+           categoriesStyleOne.setCategoryName("Abstrait");
+           repoCategories.save(categoriesStyleOne);
+
+           Categories categoriesStyleTwo = new Categories();
+           categoriesStyleTwo.setCategoryId(102L);
+           categoriesStyleTwo.setCategoryName("Art Numérique");
+           repoCategories.save(categoriesStyleTwo);
+
+           Categories categoriesTechnicOne = new Categories();
+           categoriesTechnicOne.setCategoryId(201L);
+           categoriesTechnicOne.setCategoryName("Peinture");
+           repoCategories.save(categoriesTechnicOne);
+
+           Categories categoriesTechnicTwo = new Categories();
+           categoriesTechnicTwo.setCategoryId(202L);
+           categoriesTechnicTwo.setCategoryName("Sculpture");
+           repoCategories.save(categoriesTechnicTwo);
+
+           Categories categoriesMediumOne = new Categories();
+           categoriesMediumOne.setCategoryId(301L);
+           categoriesMediumOne.setCategoryName("Installation");
+           repoCategories.save(categoriesMediumOne);
+
+           Categories categoriesMediumTwo = new Categories();
+           categoriesMediumTwo.setCategoryId(302L);
+           categoriesMediumTwo.setCategoryName("Photographie");
+           repoCategories.save(categoriesMediumTwo);
+
+       };
+   }
+
+
 
 
 

@@ -5,6 +5,7 @@ import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.repositories.ArtworkRepository;
 import com.project.gallery.repositories.AvailabilitiesRepository;
+import com.project.gallery.repositories.CategoriesRepository;
 import org.springframework.stereotype.Service;
 
 
@@ -13,6 +14,7 @@ public class ArtworkServiceImpl implements ArtworkService {
 
     private final ArtworkRepository artworkRepo ;
     private final AvailabilitiesRepository availabilitiesRepo ;
+
 
     public ArtworkServiceImpl (ArtworkRepository artworkRepo, AvailabilitiesRepository availabilitiesRepo){
 
