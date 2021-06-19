@@ -1,31 +1,27 @@
 package com.project.gallery.domain.entities;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "CATEGORIES")
 public class Categories {
 
     @Id
-    private Long categoryId ;
+    private Long categoryCode ;
 
     @Column(name = "NAME")
     private String categoryName ;
-
-    @OneToMany(mappedBy = "category")
-    private Set<ArtworkCategory> artworkCategory;
 
     public Categories(){
         //
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public Long getCategoryCode() {
+        return categoryCode;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryCode(Long categoryCode) {
+        this.categoryCode = categoryCode;
     }
 
     public String getCategoryName() {
@@ -36,20 +32,12 @@ public class Categories {
         this.categoryName = categoryName;
     }
 
-    public Set<ArtworkCategory> getArtworkCategory() {
-        return artworkCategory;
-    }
-
-    public void setArtworkCategory(Set<ArtworkCategory> artworkCategory) {
-        this.artworkCategory = artworkCategory;
-    }
 
     @Override
     public String toString() {
         return "Categories{" +
-                "categoryId=" + categoryId +
+                "categoryCode=" + categoryCode +
                 ", categoryName='" + categoryName + '\'' +
-                ", artworkCategory=" + artworkCategory +
                 '}';
     }
 }

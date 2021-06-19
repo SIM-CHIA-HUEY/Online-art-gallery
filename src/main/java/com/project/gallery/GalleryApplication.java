@@ -1,9 +1,7 @@
 package com.project.gallery;
 
-import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
-import com.project.gallery.repositories.ArtworkRepository;
 import com.project.gallery.repositories.AvailabilitiesRepository;
 import com.project.gallery.repositories.CategoriesRepository;
 import org.springframework.beans.factory.InitializingBean;
@@ -49,32 +47,32 @@ public class GalleryApplication {
     InitializingBean sendDatabaseCategoriesTable(){
        return() -> {
            Categories categoriesStyleOne = new Categories();
-           categoriesStyleOne.setCategoryId(101L);
+           categoriesStyleOne.setCategoryCode(101L);
            categoriesStyleOne.setCategoryName("Abstrait");
            repoCategories.save(categoriesStyleOne);
 
            Categories categoriesStyleTwo = new Categories();
-           categoriesStyleTwo.setCategoryId(102L);
+           categoriesStyleTwo.setCategoryCode(102L);
            categoriesStyleTwo.setCategoryName("Art Numérique");
            repoCategories.save(categoriesStyleTwo);
 
            Categories categoriesTechnicOne = new Categories();
-           categoriesTechnicOne.setCategoryId(201L);
+           categoriesTechnicOne.setCategoryCode(201L);
            categoriesTechnicOne.setCategoryName("Peinture");
            repoCategories.save(categoriesTechnicOne);
 
            Categories categoriesTechnicTwo = new Categories();
-           categoriesTechnicTwo.setCategoryId(202L);
+           categoriesTechnicTwo.setCategoryCode(202L);
            categoriesTechnicTwo.setCategoryName("Sculpture");
            repoCategories.save(categoriesTechnicTwo);
 
            Categories categoriesMediumOne = new Categories();
-           categoriesMediumOne.setCategoryId(301L);
+           categoriesMediumOne.setCategoryCode(301L);
            categoriesMediumOne.setCategoryName("Installation");
            repoCategories.save(categoriesMediumOne);
 
            Categories categoriesMediumTwo = new Categories();
-           categoriesMediumTwo.setCategoryId(302L);
+           categoriesMediumTwo.setCategoryCode(302L);
            categoriesMediumTwo.setCategoryName("Photographie");
            repoCategories.save(categoriesMediumTwo);
 

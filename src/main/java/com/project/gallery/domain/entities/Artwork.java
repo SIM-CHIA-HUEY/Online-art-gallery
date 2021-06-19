@@ -1,7 +1,6 @@
 package com.project.gallery.domain.entities;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "ARTWORKS")
@@ -26,8 +25,17 @@ public class Artwork {
     @Column(name = "QUANTITY", nullable = false)
     private int productionQuantity ;
 
-    @OneToMany(mappedBy = "artwork")
-    private Set<ArtworkCategory> artworkCategory;
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ONE")
+    private Categories categoryCodeOne;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_TWO")
+    private Categories categoryCodeTwo;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_THREE")
+    private Categories categoryCodeThree;
 
     @ManyToOne
     @JoinColumn(name = "AVAILABILITIES")
@@ -37,16 +45,6 @@ public class Artwork {
     public Artwork(){
         //
     }
-
-    /*
-    public Long getArtworkId() {
-        return artworkId;
-    }
-    public void setArtworkId(Long artworkId) {
-        this.artworkId = artworkId;
-    }
-
-     */
 
 
     public Long getArtworkId() {
@@ -98,12 +96,28 @@ public class Artwork {
         this.availabilitiesId = availabilitiesCode;
     }
 
-    public Set<ArtworkCategory> getArtworkCategory() {
-        return artworkCategory;
+    public Categories getCategoryCodeOne() {
+        return categoryCodeOne;
     }
 
-    public void setArtworkCategory(Set<ArtworkCategory> artworkCategory) {
-        this.artworkCategory = artworkCategory;
+    public void setCategoryCodeOne(Categories categoryCodeOne) {
+        this.categoryCodeOne = categoryCodeOne;
+    }
+
+    public Categories getCategoryCodeTwo() {
+        return categoryCodeTwo;
+    }
+
+    public void setCategoryCodeTwo(Categories categoryCodeTwo) {
+        this.categoryCodeTwo = categoryCodeTwo;
+    }
+
+    public Categories getCategoryCodeThree() {
+        return categoryCodeThree;
+    }
+
+    public void setCategoryCodeThree(Categories categoryCodeThree) {
+        this.categoryCodeThree = categoryCodeThree;
     }
 
     @Override
@@ -115,7 +129,9 @@ public class Artwork {
                 ", price=" + price +
                 ", isPublic=" + isPublic +
                 ", productionQuantity=" + productionQuantity +
-                ", artworkCategory=" + artworkCategory +
+                ", categoryCodeOne=" + categoryCodeOne +
+                ", categoryCodeTwo=" + categoryCodeTwo +
+                ", categoryCodeThree=" + categoryCodeThree +
                 ", availabilitiesId=" + availabilitiesId +
                 '}';
     }
