@@ -1,6 +1,7 @@
 package com.project.gallery.controllers;
 
 import com.project.gallery.domain.dtos.ArtworkCreate;
+import com.project.gallery.domain.dtos.ArtworkView;
 import com.project.gallery.services.ArtworkService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,11 @@ public class ArtworkController {
     @PostMapping
     public void createArtwork (@Valid @RequestBody ArtworkCreate newArtwork){
         artworkService.create(newArtwork);
+    }
+
+    @GetMapping("/{id}")
+    public ArtworkView getById(@PathVariable("id") Long id){
+        return artworkService.getById(id);
     }
 
     /*

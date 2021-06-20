@@ -1,6 +1,7 @@
 package com.project.gallery.services;
 
 import com.project.gallery.domain.dtos.ArtworkCreate;
+import com.project.gallery.domain.dtos.ArtworkView;
 import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
@@ -67,6 +68,23 @@ public class ArtworkServiceImpl implements ArtworkService {
         artworkRepo.save(artworkEntity);
     }
 
+    @Override
+    public ArtworkView getById (Long id){
+        Artwork artworkEntity = artworkRepo.findById(id).get();
+        ArtworkView viewSearchedArtwork = new ArtworkView();
+        viewSearchedArtwork.setTitle(artworkEntity.getTitle());
+        viewSearchedArtwork.setDescription(artworkEntity.getDescription());
+        viewSearchedArtwork.setPrice(artworkEntity.getPrice());
+        viewSearchedArtwork.setPublic(artworkEntity.isPublic());
+        viewSearchedArtwork.setProductionQuantity(artworkEntity.getProductionQuantity());
+        viewSearchedArtwork.setCategoryOne(artworkEntity.getCategoryCodeOne());
+        viewSearchedArtwork.setCategoryTwo(artworkEntity.getCategoryCodeTwo());
+        viewSearchedArtwork.setCategoryThree(artworkEntity.getCategoryCodeThree());
+        viewSearchedArtwork.setAvailabilities(artworkEntity.getAvailabilitiesId());
+        return viewSearchedArtwork;
+    }
+
+    // get all artworks
 
 
 }

@@ -7,9 +7,9 @@ public class ArtworkCreate {
     // + upload images and videos !
     @NotBlank private String title ;
     @NotBlank private String description ;
-    @NotNull private Long categoryCodeOne ;
-    @NotNull private Long categoryCodeTwo ;
-    @NotNull private Long categoryCodeThree ;
+    private Long categoryCodeOne ;
+    private Long categoryCodeTwo ;
+    private Long categoryCodeThree ;
     @NotNull private int price ;
     @NotNull private boolean isPublic ;
     @NotNull private int productionQuantity ;
