@@ -1,6 +1,8 @@
 package com.project.gallery.controllers;
 
 import com.project.gallery.domain.dtos.ArtworkCreate;
+import com.project.gallery.domain.dtos.ArtworkUpdate;
+import com.project.gallery.domain.dtos.ArtworkView;
 import com.project.gallery.services.ArtworkService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,32 @@ public class ArtworkController {
     public void createArtwork (@Valid @RequestBody ArtworkCreate newArtwork){
         artworkService.create(newArtwork);
     }
+
+    @GetMapping("/{id}")
+    public ArtworkView getById(@PathVariable("id") Long id){
+        return artworkService.getById(id);
+    }
+
+    @PatchMapping("/{id}/")
+    public void updateArtwork(@PathVariable("id") Long id, @Valid @RequestBody ArtworkUpdate partial){
+        artworkService.updateArtworkTitle(id,partial);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteArtwork (@PathVariable("id") Long id, @Valid @RequestBody ArtworkUpdate artwork){
+        // delete work for real from DB, or inactivate it ?
+        artworkService.deleteArtworkTitle(id);
+    }
+/*
+    @DeleteMapping("/{name}")
+    public void deleteProject(@PathVariable("name") String name, @Valid @RequestBody ProjectDelete project){
+        //ProjectDelete toBeDeleted = new ProjectDelete("Hello");
+        project.setProjectName(name); //changer le name
+        System.out.println(project);
+    }
+
+
+ */
 
     /*
     @GetMapping("all")

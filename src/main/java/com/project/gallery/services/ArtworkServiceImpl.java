@@ -1,6 +1,8 @@
 package com.project.gallery.services;
 
 import com.project.gallery.domain.dtos.ArtworkCreate;
+import com.project.gallery.domain.dtos.ArtworkUpdate;
+import com.project.gallery.domain.dtos.ArtworkView;
 import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
@@ -24,20 +26,6 @@ public class ArtworkServiceImpl implements ArtworkService {
         this.availabilitiesRepo = availabilitiesRepo ;
         this.categoriesRepo = categoriesRepo ;
     }
-
-
-    /*
-    getAll() {
-        artworkRepo.findAll();
-    }
-    public ArtworkView getAllWork() {
-        Artwork artwork = artworkRepo.findAll();
-        ArtworkView view = new ArtworkView();
-        view.findAll(ArtworkView.getAll);
-        return view;
-    }
-
-     */
 
     @Override
     public void create (ArtworkCreate input){
@@ -67,6 +55,45 @@ public class ArtworkServiceImpl implements ArtworkService {
         artworkRepo.save(artworkEntity);
     }
 
+    @Override
+    public ArtworkView getById (Long id){
+        Artwork artworkEntity = artworkRepo.findById(id).get();
+        ArtworkView viewSearchedArtwork = new ArtworkView();
+        viewSearchedArtwork.setTitle(artworkEntity.getTitle());
+        viewSearchedArtwork.setDescription(artworkEntity.getDescription());
+        viewSearchedArtwork.setPrice(artworkEntity.getPrice());
+        viewSearchedArtwork.setPublic(artworkEntity.isPublic());
+        viewSearchedArtwork.setProductionQuantity(artworkEntity.getProductionQuantity());
+        viewSearchedArtwork.setCategoryOne(artworkEntity.getCategoryCodeOne());
+        viewSearchedArtwork.setCategoryTwo(artworkEntity.getCategoryCodeTwo());
+        viewSearchedArtwork.setCategoryThree(artworkEntity.getCategoryCodeThree());
+        viewSearchedArtwork.setAvailabilities(artworkEntity.getAvailabilitiesId());
+        return viewSearchedArtwork;
+    }
 
+    // get all artworks by artist name / pseudonym / id
+    /*
+    getAll() {
+        artworkRepo.findAll();
+    }
+    public ArtworkView getAllWork() {
+        Artwork artwork = artworkRepo.findAll();
+        ArtworkView view = new ArtworkView();
+        view.findAll(ArtworkView.getAll);
+        return view;
+    }
 
+     */
+
+    @Override
+    public void updateArtworkTitle(Long id, ArtworkUpdate artworkUpdate){
+        Artwork entity = artworkRepo.findById(id).get();
+        entity.setTitle(artworkUpdate.getTitle());
+        artworkRepo.save(entity);
+    }
+
+    @Override
+    public void deleteArtworkTitle(Long id) {
+
+    }
 }

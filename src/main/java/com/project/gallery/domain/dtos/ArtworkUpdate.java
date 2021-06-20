@@ -3,8 +3,8 @@ package com.project.gallery.domain.dtos;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
 
-public class ArtworkView {
-    // + view images and videos !
+public class ArtworkUpdate {
+    // images and videos
     private String title ;
     private String description ;
     private int price ;
@@ -15,12 +15,14 @@ public class ArtworkView {
     private Categories categoryThree ;
     private Availabilities availabilities ;
 
-    public ArtworkView() {
+    public ArtworkUpdate(){
+        //
     }
 
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -28,6 +30,7 @@ public class ArtworkView {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -35,6 +38,7 @@ public class ArtworkView {
     public int getPrice() {
         return price;
     }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -42,6 +46,7 @@ public class ArtworkView {
     public boolean isPublic() {
         return isPublic;
     }
+
     public void setPublic(boolean aPublic) {
         isPublic = aPublic;
     }
@@ -49,6 +54,7 @@ public class ArtworkView {
     public int getProductionQuantity() {
         return productionQuantity;
     }
+
     public void setProductionQuantity(int productionQuantity) {
         this.productionQuantity = productionQuantity;
     }
@@ -56,6 +62,7 @@ public class ArtworkView {
     public Categories getCategoryOne() {
         return categoryOne;
     }
+
     public void setCategoryOne(Categories categoryOne) {
         this.categoryOne = categoryOne;
     }
@@ -63,6 +70,7 @@ public class ArtworkView {
     public Categories getCategoryTwo() {
         return categoryTwo;
     }
+
     public void setCategoryTwo(Categories categoryTwo) {
         this.categoryTwo = categoryTwo;
     }
@@ -70,6 +78,7 @@ public class ArtworkView {
     public Categories getCategoryThree() {
         return categoryThree;
     }
+
     public void setCategoryThree(Categories categoryThree) {
         this.categoryThree = categoryThree;
     }
@@ -77,13 +86,14 @@ public class ArtworkView {
     public Availabilities getAvailabilities() {
         return availabilities;
     }
+
     public void setAvailabilities(Availabilities availabilities) {
         this.availabilities = availabilities;
     }
 
     @Override
     public String toString() {
-        return "ArtworkView{" +
+        return "ArtworkUpdate{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
