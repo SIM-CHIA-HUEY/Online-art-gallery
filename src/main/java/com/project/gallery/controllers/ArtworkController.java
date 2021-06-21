@@ -28,9 +28,9 @@ public class ArtworkController {
         return artworkService.getById(id);
     }
 
-    @PatchMapping("/{id}/")
+    @PatchMapping("/{id}")
     public void updateArtwork(@PathVariable("id") Long id, @Valid @RequestBody ArtworkUpdate partial){
-        artworkService.updateArtworkTitle(id,partial);
+        artworkService.updateArtwork(id,partial);
     }
 
     @DeleteMapping("/{id}")

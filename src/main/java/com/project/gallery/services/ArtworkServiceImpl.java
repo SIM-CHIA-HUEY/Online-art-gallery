@@ -6,6 +6,7 @@ import com.project.gallery.domain.dtos.ArtworkView;
 import com.project.gallery.domain.entities.Artwork;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
+import com.project.gallery.mapper.ArtworkMapper;
 import com.project.gallery.repositories.ArtworkRepository;
 import com.project.gallery.repositories.AvailabilitiesRepository;
 import com.project.gallery.repositories.CategoriesRepository;
@@ -18,6 +19,7 @@ public class ArtworkServiceImpl implements ArtworkService {
     private final ArtworkRepository artworkRepo ;
     private final AvailabilitiesRepository availabilitiesRepo ;
     private final CategoriesRepository categoriesRepo ;
+    //private final ArtworkMapper mapper ;
 
 
     public ArtworkServiceImpl (ArtworkRepository artworkRepo, AvailabilitiesRepository availabilitiesRepo,
@@ -25,6 +27,7 @@ public class ArtworkServiceImpl implements ArtworkService {
         this.artworkRepo = artworkRepo ;
         this.availabilitiesRepo = availabilitiesRepo ;
         this.categoriesRepo = categoriesRepo ;
+        //this.mapper = mapper ;  , ArtworkMapper mapper
     }
 
     @Override
@@ -85,19 +88,33 @@ public class ArtworkServiceImpl implements ArtworkService {
 
      */
 
+    /*
     @Override
-    public void updateArtworkTitle(Long id, ArtworkUpdate artworkUpdate){
-        Artwork updateArtworkEntity = artworkRepo.findById(id).get();
-        updateArtworkEntity.setTitle(artworkUpdate.getTitle());
-        updateArtworkEntity.setDescription(artworkUpdate.getDescription());
+    public void updateArtwork(Long id, ArtworkUpdate artworkUpdate){
+        Artwork updateArtworkTitle = artworkRepo.findById(id).get();
+        mapper.updateArtworkFromArtworkUpdate(artworkUpdate, updateArtworkTitle);
+        artworkRepo.save(updateArtworkTitle);
+
+    }
+
+     */
+
+    @Override
+    public void updateArtwork(Long id, ArtworkUpdate artworkUpdate){
+        Artwork updateArtworkTitle = artworkRepo.findById(id).get();
+        updateArtworkTitle.setTitle(artworkUpdate.getTitle());
+        artworkRepo.save(updateArtworkTitle);
+    }
+/*
+      updateArtworkDescription.setDescription(artworkUpdate.getDescription());
         updateArtworkEntity.setPrice(artworkUpdate.getPrice());
         updateArtworkEntity.setPublic(artworkUpdate.isPublic());
         updateArtworkEntity.setProductionQuantity(artworkUpdate.getProductionQuantity());
         updateArtworkEntity.setCategoryCodeOne(artworkUpdate.getCategoryOne());
         updateArtworkEntity.setCategoryCodeTwo(artworkUpdate.getCategoryTwo());
         updateArtworkEntity.setCategoryCodeThree(artworkUpdate.getCategoryThree());
-        artworkRepo.save(updateArtworkEntity);
-    }
+
+ */
 
     public void deleteArtworkById(Long artworkId) {
         artworkRepo.deleteById(artworkId);

@@ -1,10 +1,12 @@
 package com.project.gallery.domain.dtos;
 
+
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
 
 public class ArtworkUpdate {
     // images and videos
+
     private String title ;
     private String description ;
     private int price ;
@@ -14,6 +16,7 @@ public class ArtworkUpdate {
     private Categories categoryTwo ;
     private Categories categoryThree ;
     private Availabilities availabilities ;
+
 
     public ArtworkUpdate(){
         //
@@ -91,6 +94,8 @@ public class ArtworkUpdate {
         this.availabilities = availabilities;
     }
 
+
+
     @Override
     public String toString() {
         return "ArtworkUpdate{" +
@@ -105,4 +110,5 @@ public class ArtworkUpdate {
                 ", availabilities=" + availabilities +
                 '}';
     }
+
 }

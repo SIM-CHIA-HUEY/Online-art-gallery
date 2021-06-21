@@ -9,7 +9,7 @@ public interface ArtworkService {
 
     ArtworkView getById (Long id);
 
-    void updateArtworkTitle(Long id, ArtworkUpdate partial);
+    void updateArtwork(Long id, ArtworkUpdate partial);
 
     void deleteArtworkById(Long id);
 
