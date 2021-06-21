@@ -34,20 +34,9 @@ public class ArtworkController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteArtwork (@PathVariable("id") Long id, @Valid @RequestBody ArtworkUpdate artwork){
-        // delete work for real from DB, or inactivate it ?
-        artworkService.deleteArtworkTitle(id);
+    public void deleteArtwork (@PathVariable("id") Long id){
+        artworkService.deleteArtworkById(id);
     }
-/*
-    @DeleteMapping("/{name}")
-    public void deleteProject(@PathVariable("name") String name, @Valid @RequestBody ProjectDelete project){
-        //ProjectDelete toBeDeleted = new ProjectDelete("Hello");
-        project.setProjectName(name); //changer le name
-        System.out.println(project);
-    }
-
-
- */
 
     /*
     @GetMapping("all")

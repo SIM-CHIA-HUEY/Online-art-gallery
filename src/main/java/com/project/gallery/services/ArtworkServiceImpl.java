@@ -20,8 +20,8 @@ public class ArtworkServiceImpl implements ArtworkService {
     private final CategoriesRepository categoriesRepo ;
 
 
-    public ArtworkServiceImpl (ArtworkRepository artworkRepo, AvailabilitiesRepository availabilitiesRepo, CategoriesRepository categoriesRepo){
-
+    public ArtworkServiceImpl (ArtworkRepository artworkRepo, AvailabilitiesRepository availabilitiesRepo,
+                               CategoriesRepository categoriesRepo){
         this.artworkRepo = artworkRepo ;
         this.availabilitiesRepo = availabilitiesRepo ;
         this.categoriesRepo = categoriesRepo ;
@@ -71,7 +71,7 @@ public class ArtworkServiceImpl implements ArtworkService {
         return viewSearchedArtwork;
     }
 
-    // get all artworks by artist name / pseudonym / id
+    // get all artworks by artist name / pseudonym / id + budget + category + availabilities +
     /*
     getAll() {
         artworkRepo.findAll();
@@ -87,13 +87,19 @@ public class ArtworkServiceImpl implements ArtworkService {
 
     @Override
     public void updateArtworkTitle(Long id, ArtworkUpdate artworkUpdate){
-        Artwork entity = artworkRepo.findById(id).get();
-        entity.setTitle(artworkUpdate.getTitle());
-        artworkRepo.save(entity);
+        Artwork updateArtworkEntity = artworkRepo.findById(id).get();
+        updateArtworkEntity.setTitle(artworkUpdate.getTitle());
+        updateArtworkEntity.setDescription(artworkUpdate.getDescription());
+        updateArtworkEntity.setPrice(artworkUpdate.getPrice());
+        updateArtworkEntity.setPublic(artworkUpdate.isPublic());
+        updateArtworkEntity.setProductionQuantity(artworkUpdate.getProductionQuantity());
+        updateArtworkEntity.setCategoryCodeOne(artworkUpdate.getCategoryOne());
+        updateArtworkEntity.setCategoryCodeTwo(artworkUpdate.getCategoryTwo());
+        updateArtworkEntity.setCategoryCodeThree(artworkUpdate.getCategoryThree());
+        artworkRepo.save(updateArtworkEntity);
     }
 
-    @Override
-    public void deleteArtworkTitle(Long id) {
-
+    public void deleteArtworkById(Long artworkId) {
+        artworkRepo.deleteById(artworkId);
     }
 }

@@ -11,7 +11,7 @@ public interface ArtworkService {
 
     void updateArtworkTitle(Long id, ArtworkUpdate partial);
 
-    void deleteArtworkTitle(Long id);
+    void deleteArtworkById(Long id);
 
     //public List<ArtworkView> getAll();
 }

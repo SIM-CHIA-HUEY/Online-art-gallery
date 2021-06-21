@@ -76,6 +76,15 @@ public class GalleryApplication {
            categoriesMediumTwo.setCategoryName("Photographie");
            repoCategories.save(categoriesMediumTwo);
 
+           Categories categoriesTopicOne = new Categories();
+           categoriesTopicOne.setCategoryCode(401L);
+           categoriesTopicOne.setCategoryName("Power");
+           repoCategories.save(categoriesTopicOne);
+
+           Categories categoriesTopicTwo = new Categories();
+           categoriesTopicTwo.setCategoryCode(402L);
+           categoriesTopicTwo.setCategoryName("Love");
+           repoCategories.save(categoriesTopicTwo);
        };
    }
 

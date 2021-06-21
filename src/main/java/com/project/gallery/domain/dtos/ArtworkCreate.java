@@ -2,11 +2,12 @@ package com.project.gallery.domain.dtos;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class ArtworkCreate {
     // + upload images and videos !
-    @NotBlank private String title ;
-    @NotBlank private String description ;
+    @NotBlank @Size(min = 1, max = 50) private String title ;
+    @NotBlank @Size(min = 1, max = 255) private String description ;
     private Long categoryCodeOne ;
     private Long categoryCodeTwo ;
     private Long categoryCodeThree ;
