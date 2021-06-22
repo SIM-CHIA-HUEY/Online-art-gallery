@@ -8,13 +8,13 @@ public class ArtworkCreate {
     // + upload images and videos !
     @NotBlank @Size(min = 1, max = 50) private String title ;
     @NotBlank @Size(min = 1, max = 255) private String description ;
-    private Long categoryCodeOne ;
-    private Long categoryCodeTwo ;
-    private Long categoryCodeThree ;
+    private Long categoryOne;
+    private Long categoryTwo;
+    private Long categoryThree;
     @NotNull private int price ;
     @NotNull private boolean isPublic ;
-    @NotNull private int productionQuantity ;
-    @NotNull private Long availabilitiesId;
+    @NotNull private int quantity;
+    @NotNull private Long availabilities;
 
     public ArtworkCreate(){
         //
@@ -34,25 +34,25 @@ public class ArtworkCreate {
         this.description = description;
     }
 
-    public Long getCategoryCodeOne() {
-        return categoryCodeOne;
+    public Long getCategoryOne() {
+        return categoryOne;
     }
-    public void setCategoryCodeOne(Long categoryCodeOne) {
-        this.categoryCodeOne = categoryCodeOne;
-    }
-
-    public Long getCategoryCodeTwo() {
-        return categoryCodeTwo;
-    }
-    public void setCategoryCodeTwo(Long categoryCodeTwo) {
-        this.categoryCodeTwo = categoryCodeTwo;
+    public void setCategoryOne(Long categoryOne) {
+        this.categoryOne = categoryOne;
     }
 
-    public Long getCategoryCodeThree() {
-        return categoryCodeThree;
+    public Long getCategoryTwo() {
+        return categoryTwo;
     }
-    public void setCategoryCodeThree(Long categoryCodeThree) {
-        this.categoryCodeThree = categoryCodeThree;
+    public void setCategoryTwo(Long categoryTwo) {
+        this.categoryTwo = categoryTwo;
+    }
+
+    public Long getCategoryThree() {
+        return categoryThree;
+    }
+    public void setCategoryThree(Long categoryThree) {
+        this.categoryThree = categoryThree;
     }
 
     public int getPrice() {
@@ -69,27 +69,27 @@ public class ArtworkCreate {
         isPublic = aPublic;
     }
 
-    public int getProductionQuantity() {
-        return productionQuantity;
+    public int getQuantity() {
+        return quantity;
     }
-    public void setProductionQuantity(int productionQuantity) {
-        this.productionQuantity = productionQuantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public Long getAvailabilitiesId() {
-        return availabilitiesId;
+    public Long getAvailabilities() {
+        return availabilities;
     }
-    public void setAvailabilitiesId(Long availabilitiesId) {
-        this.availabilitiesId = availabilitiesId;
+    public void setAvailabilities(Long availabilities) {
+        this.availabilities = availabilities;
     }
 
     @Override
     public String toString(){
         return "Artwork : [ Title : " + title + ", Description : " + description +
-                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + productionQuantity +
-                ", Categories : " + categoryCodeOne +
-                ", " + categoryCodeTwo + ", " + categoryCodeThree +
-                ", Availabilities : " + availabilitiesId;
+                ", Price : " + price + "Is it public ? " + isPublic + ", Quantity : " + quantity +
+                ", Categories : " + categoryOne +
+                ", " + categoryTwo + ", " + categoryThree +
+                ", Availabilities : " + availabilities;
     }
 
 
