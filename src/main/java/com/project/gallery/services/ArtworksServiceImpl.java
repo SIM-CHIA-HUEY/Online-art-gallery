@@ -55,15 +55,16 @@ public class ArtworksServiceImpl implements ArtworksService {
     @Override
     public ArtworkView getById (Long id){
         Artworks artworksEntity = artworkRepo.findById(id).get();
+        // How to view this artwork's categories list : category codes and names ?
+
         ArtworkView viewSearchedArtwork = new ArtworkView();
         viewSearchedArtwork.setTitle(artworksEntity.getTitle());
         viewSearchedArtwork.setDescription(artworksEntity.getDescription());
         viewSearchedArtwork.setPrice(artworksEntity.getPrice());
         viewSearchedArtwork.setPublic(artworksEntity.isPublic());
         viewSearchedArtwork.setProductionQuantity(artworksEntity.getQuantity());
-        //viewSearchedArtwork.setCategoryOne(artworksEntity.getCategoryOne());
-        //viewSearchedArtwork.setCategoryTwo(artworksEntity.getCategoryTwo());
-        //viewSearchedArtwork.setCategoryThree(artworksEntity.getCategoryThree());
+        //viewSearchedArtwork.setCategoriesList(...get);
+
         viewSearchedArtwork.setAvailabilities(artworksEntity.getAvailabilities());
         return viewSearchedArtwork;
     }

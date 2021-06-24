@@ -28,7 +28,8 @@ public class Artworks {
     private int quantity;
 
     @ManyToMany
-    @JoinTable(name = "ARTWORKS_CATEGORIES", joinColumns = @JoinColumn(name="ARTWORK_ID"), inverseJoinColumns = @JoinColumn(name="CATEGORY_CODE"))
+    @JoinTable(name = "ARTWORKS_CATEGORIES", joinColumns = @JoinColumn(name="ARTWORK_ID"),
+            inverseJoinColumns = @JoinColumn(name="CATEGORY_CODE"))
     private List<Categories> categoriesList;
 
     @ManyToOne

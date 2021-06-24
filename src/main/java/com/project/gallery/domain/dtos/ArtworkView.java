@@ -3,6 +3,8 @@ package com.project.gallery.domain.dtos;
 import com.project.gallery.domain.entities.Availabilities;
 import com.project.gallery.domain.entities.Categories;
 
+import java.util.List;
+
 public class ArtworkView {
     // + view images and videos !
     private String title ;
@@ -10,13 +12,13 @@ public class ArtworkView {
     private int price ;
     private boolean isPublic ;
     private int productionQuantity ;
-    private Categories categoryOne ;
-    private Categories categoryTwo ;
-    private Categories categoryThree ;
+    //private List<Categories> categoriesList;
     private Availabilities availabilities ;
+
 
     public ArtworkView() {
     }
+
 
     public String getTitle() {
         return title;
@@ -53,26 +55,15 @@ public class ArtworkView {
         this.productionQuantity = productionQuantity;
     }
 
-    public Categories getCategoryOne() {
-        return categoryOne;
+    /*
+    public List<Categories> getCategoriesList() {
+        return categoriesList;
     }
-    public void setCategoryOne(Categories categoryOne) {
-        this.categoryOne = categoryOne;
-    }
-
-    public Categories getCategoryTwo() {
-        return categoryTwo;
-    }
-    public void setCategoryTwo(Categories categoryTwo) {
-        this.categoryTwo = categoryTwo;
+    public void setCategoriesList(List<Categories> categoriesList) {
+        this.categoriesList = categoriesList;
     }
 
-    public Categories getCategoryThree() {
-        return categoryThree;
-    }
-    public void setCategoryThree(Categories categoryThree) {
-        this.categoryThree = categoryThree;
-    }
+     */
 
     public Availabilities getAvailabilities() {
         return availabilities;
@@ -89,9 +80,7 @@ public class ArtworkView {
                 ", price=" + price +
                 ", isPublic=" + isPublic +
                 ", productionQuantity=" + productionQuantity +
-                ", categoryOne=" + categoryOne +
-                ", categoryTwo=" + categoryTwo +
-                ", categoryThree=" + categoryThree +
+
                 ", availabilities=" + availabilities +
                 '}';
     }
