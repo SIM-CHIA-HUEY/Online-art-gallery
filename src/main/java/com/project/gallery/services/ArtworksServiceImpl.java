@@ -11,6 +11,9 @@ import com.project.gallery.repositories.AvailabilitiesRepository;
 import com.project.gallery.repositories.CategoriesRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ArtworksServiceImpl implements ArtworksService {
 
@@ -34,17 +37,13 @@ public class ArtworksServiceImpl implements ArtworksService {
         artworksEntity.setPublic(newArtwork.isPublic());
         artworksEntity.setQuantity(newArtwork.getQuantity());
 
-        Long CategoriesIdOne = newArtwork.getCategoryOne();
-        Categories categoriesCodeOne = categoriesRepo.getOne(CategoriesIdOne);
-        artworksEntity.setCategoryOne(categoriesCodeOne);
-
-        Long CategoriesIdTwo = newArtwork.getCategoryTwo();
-        Categories categoriesCodeTwo = categoriesRepo.getOne(CategoriesIdTwo);
-        artworksEntity.setCategoryTwo(categoriesCodeTwo);
-
-        Long CategoriesIdThree = newArtwork.getCategoryThree();
-        Categories categoriesCodeThree = categoriesRepo.getOne(CategoriesIdThree);
-        artworksEntity.setCategoryThree(categoriesCodeThree);
+        List<Long> categoriesInputs = newArtwork.getCategoriesList();
+        List<Categories> categoriesList = new ArrayList<Categories>();
+        for(Long categoryCode : categoriesInputs){
+            Categories category = categoriesRepo.findById(categoryCode).get();
+            categoriesList.add(category);
+        }
+        artworksEntity.setCategoriesList(categoriesList);
 
         Long AvailabilitiesId = newArtwork.getAvailabilities();
         Availabilities availabilities = availabilitiesRepo.getOne(AvailabilitiesId);
@@ -62,27 +61,30 @@ public class ArtworksServiceImpl implements ArtworksService {
         viewSearchedArtwork.setPrice(artworksEntity.getPrice());
         viewSearchedArtwork.setPublic(artworksEntity.isPublic());
         viewSearchedArtwork.setProductionQuantity(artworksEntity.getQuantity());
-        viewSearchedArtwork.setCategoryOne(artworksEntity.getCategoryOne());
-        viewSearchedArtwork.setCategoryTwo(artworksEntity.getCategoryTwo());
-        viewSearchedArtwork.setCategoryThree(artworksEntity.getCategoryThree());
+        //viewSearchedArtwork.setCategoryOne(artworksEntity.getCategoryOne());
+        //viewSearchedArtwork.setCategoryTwo(artworksEntity.getCategoryTwo());
+        //viewSearchedArtwork.setCategoryThree(artworksEntity.getCategoryThree());
         viewSearchedArtwork.setAvailabilities(artworksEntity.getAvailabilities());
         return viewSearchedArtwork;
     }
 
     @Override
-    public void updateArtwork(Long id, ArtworkUpdate artworkUpdate){
-        Artworks updateArtworksTitle = artworkRepo.findById(id).get();
-        updateArtworksTitle.setTitle(artworkUpdate.getTitle());
-        /*
-      updateArtworkDescription.setDescription(artworkUpdate.getDescription());
-        updateArtworkEntity.setPrice(artworkUpdate.getPrice());
-        updateArtworkEntity.setPublic(artworkUpdate.isPublic());
-        updateArtworkEntity.setProductionQuantity(artworkUpdate.getProductionQuantity());
-        updateArtworkEntity.setCategoryCodeOne(artworkUpdate.getCategoryOne());
-        updateArtworkEntity.setCategoryCodeTwo(artworkUpdate.getCategoryTwo());
-        updateArtworkEntity.setCategoryCodeThree(artworkUpdate.getCategoryThree());
- */
-        artworkRepo.save(updateArtworksTitle);
+    public void updateArtwork(Long id, ArtworkUpdate artworkUpdateInput){
+        Artworks updateArtworks = artworkRepo.findById(id).get();
+
+        if(!artworkUpdateInput.getTitle().equals(updateArtworks.getTitle())){
+            updateArtworks.setTitle(artworkUpdateInput.getTitle());
+        } else if(!artworkUpdateInput.getDescription().equals(updateArtworks.getDescription())){
+            updateArtworks.setDescription(artworkUpdateInput.getDescription());
+        } else if(artworkUpdateInput.getPrice() != updateArtworks.getPrice()){
+            updateArtworks.setPrice(artworkUpdateInput.getPrice());
+        } else if(! artworkUpdateInput.isPublic() == updateArtworks.isPublic()){
+            updateArtworks.setPublic(artworkUpdateInput.isPublic());
+        } else if(artworkUpdateInput.getQuantity() != updateArtworks.getQuantity()){
+            updateArtworks.setQuantity(artworkUpdateInput.getQuantity());
+        }
+
+        artworkRepo.save(updateArtworks);
     }
 
     public void deleteArtworkById(Long artworkId) {

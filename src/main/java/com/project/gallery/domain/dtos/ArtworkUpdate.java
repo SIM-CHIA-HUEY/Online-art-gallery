@@ -1,8 +1,6 @@
 package com.project.gallery.domain.dtos;
 
-
 import com.project.gallery.domain.entities.Availabilities;
-import com.project.gallery.domain.entities.Categories;
 
 public class ArtworkUpdate {
     // images and videos
@@ -11,10 +9,7 @@ public class ArtworkUpdate {
     private String description ;
     private int price ;
     private boolean isPublic ;
-    private int productionQuantity ;
-    private Categories categoryOne ;
-    private Categories categoryTwo ;
-    private Categories categoryThree ;
+    private int quantity;
     private Availabilities availabilities ;
 
 
@@ -54,36 +49,12 @@ public class ArtworkUpdate {
         isPublic = aPublic;
     }
 
-    public int getProductionQuantity() {
-        return productionQuantity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setProductionQuantity(int productionQuantity) {
-        this.productionQuantity = productionQuantity;
-    }
-
-    public Categories getCategoryOne() {
-        return categoryOne;
-    }
-
-    public void setCategoryOne(Categories categoryOne) {
-        this.categoryOne = categoryOne;
-    }
-
-    public Categories getCategoryTwo() {
-        return categoryTwo;
-    }
-
-    public void setCategoryTwo(Categories categoryTwo) {
-        this.categoryTwo = categoryTwo;
-    }
-
-    public Categories getCategoryThree() {
-        return categoryThree;
-    }
-
-    public void setCategoryThree(Categories categoryThree) {
-        this.categoryThree = categoryThree;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Availabilities getAvailabilities() {
@@ -103,10 +74,7 @@ public class ArtworkUpdate {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", isPublic=" + isPublic +
-                ", productionQuantity=" + productionQuantity +
-                ", categoryOne=" + categoryOne +
-                ", categoryTwo=" + categoryTwo +
-                ", categoryThree=" + categoryThree +
+                ", productionQuantity=" + quantity +
                 ", availabilities=" + availabilities +
                 '}';
     }

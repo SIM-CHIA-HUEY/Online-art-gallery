@@ -1,6 +1,7 @@
 package com.project.gallery.domain.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ARTWORKS")
@@ -26,17 +27,9 @@ public class Artworks {
     @Column(name = "QUANTITY", nullable = false)
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ONE")
-    private Categories categoryOne;
-
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_TWO")
-    private Categories categoryTwo;
-
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_THREE")
-    private Categories categoryThree;
+    @ManyToMany
+    @JoinTable(name = "ARTWORKS_CATEGORIES", joinColumns = @JoinColumn(name="ARTWORK_ID"), inverseJoinColumns = @JoinColumn(name="CATEGORY_CODE"))
+    private List<Categories> categoriesList;
 
     @ManyToOne
     @JoinColumn(name = "AVAILABILITIES")
@@ -97,43 +90,26 @@ public class Artworks {
         this.availabilities = availabilitiesCode;
     }
 
-    public Categories getCategoryOne() {
-        return categoryOne;
+    public List<Categories> getCategoriesList() {
+        return categoriesList;
     }
 
-    public void setCategoryOne(Categories categoryCodeOne) {
-        this.categoryOne = categoryCodeOne;
+    public void setCategoriesList(List<Categories> categoriesList) {
+        this.categoriesList = categoriesList;
     }
 
-    public Categories getCategoryTwo() {
-        return categoryTwo;
-    }
-
-    public void setCategoryTwo(Categories categoryCodeTwo) {
-        this.categoryTwo = categoryCodeTwo;
-    }
-
-    public Categories getCategoryThree() {
-        return categoryThree;
-    }
-
-    public void setCategoryThree(Categories categoryCodeThree) {
-        this.categoryThree = categoryCodeThree;
-    }
 
     @Override
     public String toString() {
-        return "Artwork{" +
-                "artworkId=" + id +
+        return "Artworks{" +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", isPublic=" + isPublic +
-                ", productionQuantity=" + quantity +
-                ", categoryCodeOne=" + categoryOne +
-                ", categoryCodeTwo=" + categoryTwo +
-                ", categoryCodeThree=" + categoryThree +
-                ", availabilitiesId=" + availabilities +
+                ", quantity=" + quantity +
+                ", categoriesList=" + categoriesList +
+                ", availabilities=" + availabilities +
                 '}';
     }
 }
