@@ -14,6 +14,7 @@ public class ArtworkCreate {
     @NotNull private boolean isPublic ;
     @NotNull private int quantity;
     @NotNull private Long availabilities;
+    @NotNull private Long userId ;
 
     public ArtworkCreate(){
         //
@@ -50,6 +51,7 @@ public class ArtworkCreate {
     public boolean isPublic() {
         return isPublic;
     }
+
     public void setPublic(boolean aPublic) {
         isPublic = aPublic;
     }
@@ -68,6 +70,14 @@ public class ArtworkCreate {
         this.availabilities = availabilities;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "ArtworkCreate{" +
@@ -78,6 +88,7 @@ public class ArtworkCreate {
                 ", isPublic=" + isPublic +
                 ", quantity=" + quantity +
                 ", availabilities=" + availabilities +
+                ", userId=" + userId +
                 '}';
     }
 }

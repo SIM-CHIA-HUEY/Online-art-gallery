@@ -14,9 +14,6 @@ public class Categories {
     @Column(name = "NAME")
     private String categoryName ;
 
-    @ManyToMany(mappedBy="categoriesList")
-    private List<Artworks> artworksList;
-
     public Categories(){
         //
     }
@@ -37,20 +34,12 @@ public class Categories {
         this.categoryName = categoryName;
     }
 
-    public List<Artworks> getArtworksList() {
-        return artworksList;
-    }
-
-    public void setArtworksList(List<Artworks> artworksList) {
-        this.artworksList = artworksList;
-    }
 
     @Override
     public String toString() {
         return "Categories{" +
                 "categoryCode=" + categoryCode +
-                ", categoryName='" + categoryName + '\'' +
-                ", artworksList=" + artworksList +
+                ", categoryName='" + categoryName +
                 '}';
     }
 }

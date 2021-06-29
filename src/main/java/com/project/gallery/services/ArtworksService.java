@@ -13,5 +13,4 @@ public interface ArtworksService {
 
     void deleteArtworkById(Long id);
 
-    //public List<ArtworkView> getAll();
 }

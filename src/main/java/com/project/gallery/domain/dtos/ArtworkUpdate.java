@@ -2,15 +2,18 @@ package com.project.gallery.domain.dtos;
 
 import com.project.gallery.domain.entities.Availabilities;
 
+import java.util.List;
+
 public class ArtworkUpdate {
     // images and videos
 
     private String title ;
     private String description ;
+    private List<Long> categoriesList;
     private int price ;
     private boolean isPublic ;
     private int quantity;
-    private Availabilities availabilities ;
+    private Long availabilities ;
 
 
     public ArtworkUpdate(){
@@ -31,6 +34,14 @@ public class ArtworkUpdate {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Long> getCategoriesList() {
+        return categoriesList;
+    }
+
+    public void setCategoriesList(List<Long> categoriesList) {
+        this.categoriesList = categoriesList;
     }
 
     public int getPrice() {
@@ -57,26 +68,24 @@ public class ArtworkUpdate {
         this.quantity = quantity;
     }
 
-    public Availabilities getAvailabilities() {
+    public Long getAvailabilities() {
         return availabilities;
     }
 
-    public void setAvailabilities(Availabilities availabilities) {
+    public void setAvailabilities(Long availabilities) {
         this.availabilities = availabilities;
     }
-
-
 
     @Override
     public String toString() {
         return "ArtworkUpdate{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", categoriesList=" + categoriesList +
                 ", price=" + price +
                 ", isPublic=" + isPublic +
-                ", productionQuantity=" + quantity +
+                ", quantity=" + quantity +
                 ", availabilities=" + availabilities +
                 '}';
     }
-
 }

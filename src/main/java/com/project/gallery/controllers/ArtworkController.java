@@ -10,8 +10,8 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/artworks")
-
 public class ArtworkController {
+
     private final ArtworksService artworksService;
 
     public ArtworkController (ArtworksService artworksService){
@@ -28,7 +28,7 @@ public class ArtworkController {
         return artworksService.getById(id);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public void updateArtwork(@PathVariable("id") Long id, @Valid @RequestBody ArtworkUpdate partial){
         artworksService.updateArtwork(id,partial);
     }

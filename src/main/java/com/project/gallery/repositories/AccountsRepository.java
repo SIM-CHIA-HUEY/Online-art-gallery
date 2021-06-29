@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface AccountsRepository extends JpaRepository<UserAccount, Long> {
 
+    Optional<UserAccount> findByEmailAndIsActivatedIsTrue (String email);
 
 }

@@ -3,12 +3,12 @@ package com.project.gallery.domain.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ACCOUNT")
+@Table(name="ACCOUNTS")
 public class UserAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="USER_ID")
     private Long id;
 
     @Column(name="EMAIL", unique = true, nullable = false)
@@ -21,7 +21,7 @@ public class UserAccount {
     private boolean isActivated; // ou enabled
 
     @ManyToOne
-    @JoinColumn (name="ROLE", nullable = false)
+    @JoinColumn (name="ROLE_CODE", nullable = false)
     private UserRole role;
 
 
@@ -72,7 +72,7 @@ public class UserAccount {
 
     @Override
     public String toString() {
-        return "Account [id=" + getId() + ", username=" + email
+        return "Account [id=" + getId() + ", email=" + email
                 + ", password=PROTECTED, enabled=" + isActivated + ", role=" + role
                 + "]";
     }

@@ -12,7 +12,7 @@ public class ArtworkView {
     private int price ;
     private boolean isPublic ;
     private int productionQuantity ;
-    //private List<Categories> categoriesList;
+    private List<Categories> categoriesList;
     private Availabilities availabilities ;
 
 
@@ -55,7 +55,7 @@ public class ArtworkView {
         this.productionQuantity = productionQuantity;
     }
 
-    /*
+
     public List<Categories> getCategoriesList() {
         return categoriesList;
     }
@@ -63,7 +63,7 @@ public class ArtworkView {
         this.categoriesList = categoriesList;
     }
 
-     */
+
 
     public Availabilities getAvailabilities() {
         return availabilities;

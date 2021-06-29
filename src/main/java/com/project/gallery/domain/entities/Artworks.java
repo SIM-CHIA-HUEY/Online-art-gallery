@@ -33,8 +33,12 @@ public class Artworks {
     private List<Categories> categoriesList;
 
     @ManyToOne
-    @JoinColumn(name = "AVAILABILITIES")
+    @JoinColumn(name = "AVAILABILITIES_CODE")
     private Availabilities availabilities;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private UserAccount userId ;
 
 
     public Artworks(){
@@ -99,6 +103,13 @@ public class Artworks {
         this.categoriesList = categoriesList;
     }
 
+    public UserAccount getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UserAccount userId) {
+        this.userId = userId;
+    }
 
     @Override
     public String toString() {
@@ -111,6 +122,7 @@ public class Artworks {
                 ", quantity=" + quantity +
                 ", categoriesList=" + categoriesList +
                 ", availabilities=" + availabilities +
+                ", userId=" + userId +
                 '}';
     }
 }
