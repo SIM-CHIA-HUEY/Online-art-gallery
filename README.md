@@ -1,11 +1,8 @@
 # ONLINE ART GALLERY
-Side project + _Simplon school project_
+Side project
 
-Une galerie d’arts virtuelle qui permet aux artistes d’exposer et de vendre leur oeuvres d’art, aux visiteurs de les contempler et acheter, et aux 2 d’échanger en direct. 
-
-A virtual art gallery that allows artists to exhibit and sell their artwork, and visitors to contemplate and buy them, and both to directly message each other.  
-
-
+French : Une galerie d’arts virtuelle qui permet aux artistes d’exposer et de vendre leur oeuvres d’art, aux visiteurs de les contempler et acheter, et aux 2 d’échanger en direct. 
+English : A virtual art gallery that allows artists to exhibit and sell their artwork, and visitors to contemplate and buy them, and both to directly message each other.  
 
 
 ## Project description
@@ -33,7 +30,7 @@ Une application web pour démocratiser l’exposition et la vente des oeuvres d�
 
 A web app that democratizes art exhibition and artworks sales, by making it very accessible.
 
-Artiste | Visitor | Galerie
+Artiste | Visiteur | Galerie
 ------------ | ------------- | -------------
 Outil de vente et de marketing où l’artiste peut exposer et vendre sans limite, et simple d’utilisation | Accessibilité aux produits culturels et l’art, qui est de l'enrichissement du style de vie, et amélioration de la qualité de vie | Quand les visiteurs sont nombreux dans un espace d'exposition, au lieu de se pousser la foule pour voir les informations de l’oeuvre ou acheter, la solution de cette application est de compléter les expositions physiques, en apporter la description des oeuvres, de l’artiste et possibilités d'achat à portée de main. 
 Choisir ses oeuvres à exposer et les vendre directement aux acheteurs | Pouvoir "entrer et visiter” une galerie sans être intimidé par l'ambiance d'une galerie, et posséder une oeuvre d'art authentique chez soi | 
@@ -42,27 +39,30 @@ Choisir ses oeuvres à exposer et les vendre directement aux acheteurs | Pouvoir
 __Stages__
 - [x] Functions
 - [x] Wireframes
-- [ ] Prototype
-- [ ] MCD, MLD, MPD
-- [ ] UML
-- [ ] CODE : BACK
+- [x] Prototype
+- [x] MCD, MLD, MPD
+- [x] UML
+- [x] CODE : BACK
 - [ ] CODE : FRONT
 - [ ] UX/UI design
 - [ ] Visual identity
 - [ ] Tests
 
-  
-As Kanye West said:
-> We're living the future so the present is our past.
-  
-  I think you should use an
-`<addr>` element here instead.
-  
-  ```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
-  
+<hr />
+
+# HOW TO USE
+
+1. Git clone project 
+2. Run MySQL database
+
+__If using IntelliJ :__
+
+3. Find GalleryApplication.java : Online-art-gallery/src/main/java/com/project/gallery
+4. Run application with the _play_ icon
+5. Access APIs via Postman
+
+__If using command line :__
+
+3. cd to Online-art-gallery/src/main/java/com/project/gallery
+4. ```javac GalleryApplication.java```
+5. Access APIs via Postman
