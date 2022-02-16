@@ -1,7 +1,12 @@
 # ONLINE ART GALLERY
-Side project
+On-going side project. This is only the back-end of the project. 
 
-French : Une galerie d’arts virtuelle qui permet aux artistes d’exposer et de vendre leur oeuvres d’art, aux visiteurs de les contempler et acheter, et aux 2 d’échanger en direct. 
+![show-30-30](https://user-images.githubusercontent.com/81648797/154280847-a168226f-2c7e-4bc6-8f4e-9554c3c24ab6.png)
+
+## Product info
+
+French : Une galerie d’arts virtuelle qui permet aux artistes d’exposer et de vendre leur oeuvres d’art, aux visiteurs de les contempler et acheter, et aux 2 d’échanger en direct.
+
 English : A virtual art gallery that allows artists to exhibit and sell their artwork, and visitors to contemplate and buy them, and both to directly message each other.  
 
 
@@ -59,10 +64,16 @@ __If using IntelliJ :__
 
 3. Find GalleryApplication.java : Online-art-gallery/src/main/java/com/project/gallery
 4. Run application with the _play_ icon
-5. Access APIs via Postman
+5. Access APIs through Postman
 
 __If using command line :__
 
 3. cd to Online-art-gallery/src/main/java/com/project/gallery
 4. ```javac GalleryApplication.java```
-5. Access APIs via Postman
+5. Access APIs through Postman
+
+<img width="1006" alt="Screenshot 2021-06-30 at 14 26 30" src="https://user-images.githubusercontent.com/81648797/154281043-6ece2b53-1208-4f1c-a1f3-d0f9aaaabf83.png">
+
+> access API through Postman 
+
+
